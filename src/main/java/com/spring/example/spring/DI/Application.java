@@ -2,6 +2,7 @@ package com.spring.example.spring.DI;
 
 import com.spring.example.spring.DI.controllers.*;
 import com.spring.example.spring.DI.examplebeans.FakeDataSource;
+import com.spring.example.spring.DI.examplebeans.FakeJmsBroker;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -33,6 +34,10 @@ public class Application {
 		System.out.println("---------Reading data from external properties with the help of PropertyConfig.java class");
 		FakeDataSource fakeDataSource = (FakeDataSource) context.getBean(FakeDataSource.class);
 		System.out.println("Details: "+fakeDataSource.getUsername()+" "+fakeDataSource.getPassword()+" "+fakeDataSource.getDbUrl());
+
+		System.out.println("---------Reading data from jms.properties with the help of PropertyConfig.java class");
+		FakeJmsBroker fakeJmsBroker = (FakeJmsBroker) context.getBean(FakeJmsBroker.class);
+		System.out.println("Details: "+fakeJmsBroker.getUsername()+" "+fakeJmsBroker.getPassword()+" "+fakeJmsBroker.getDbUrl());
 	}
 
 }
