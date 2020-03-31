@@ -6,17 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
 
 @Configuration
+//for spring boot below annotations are not used. Data can be read directly from application.properties
 //@PropertySource("classpath:datasource.properties")
-@PropertySources({
+/*@PropertySources({
         @PropertySource("classpath:datasource.properties"),
         @PropertySource("classpath:jms.properties")
-})
+})*/
 public class PropertyConfig {
 
     //below bean can be used to access env variable set in OS.
@@ -66,8 +64,9 @@ public class PropertyConfig {
         return fakeJmsBroker;
     }
 
-    //this will read the properties file and will place the corresponding values in member variables
+/*  //this will read the properties file and will place the corresponding values in member variables
+    //this will not require if spring boot is used. Spring boot has only main properties file i.e. application.properties
     public static PropertySourcesPlaceholderConfigurer properties(){
         return new PropertySourcesPlaceholderConfigurer();
-    }
+    }*/
 }
